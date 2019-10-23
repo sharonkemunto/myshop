@@ -2,10 +2,48 @@
 
 <?php
 include("includes/db.php");
+
+if(isset($_GET["edit_pro"]))
+{
+
+    $get_id = $_GET['edit_pro'];
+    
+    $get_pro="select * from products where product_id='$get_id'";
+
+    $run_pro=mysqli_query($conn, $get_pro);
+
+    $i = 0;
+
+$row_pro=mysqli_fetch_array($run_pro);
+    $pro_id = $row_pro['product_id'];
+    $pro_title = $row_pro['product_title'];
+    $pro_image = $row_pro['product_image'];
+    $pro_price = $row_pro['product_price'];
+    $pro_desc =$row_pro['product_desc'];
+    $pro_keywords=$row_pro['product_keywords'];
+    $pro_cat=$row_pro['product_cat'];
+    $pro_brand=$row_pro['product_brand'];
+
+    $get_cat="select * from categories where cat_id='$pro_cat'";
+
+    $run_cat=mysqli_query($conn,$get_cat);
+
+    $row_cat=mysqli_fetch_array($run_cat);
+
+    $category_title= $row_cat['cat_title'];
+
+    $get_brand="select * from brands where brand_id='$pro_brand'";
+
+    $run_brand=mysqli_query($conn,$get_brand);
+
+    $row_brand=mysqli_fetch_array($run_brand);
+
+    $brand_title= $row_brand['brand_title'];
+}
 ?>
 <html>
     <head>
-                    <title> Inserting Product </title>
+                    <title> Update Product </title>
  <!--textedidor obtained from www.tinymce-->
   <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
   <script>tinymce.init({ selector:'textarea' });</script>
@@ -17,19 +55,19 @@ include("includes/db.php");
                 <table align="center" width="795" border="2" bgcolor="#187eae">
 
                         <tr align="center">
-                            <td colspan="7"><h2>insert new post here</h2></td>
+                            <td colspan="7"><h2>Edit $ Update Product</h2></td>
                         </tr>
 
                         <tr> 
                          <td align="right"><b>Product Title</b></td>
-                             <td><input type="text" name="product_title" size="60" required/></td>
+                             <td><input type="text" name="product_title" size="60" value="<?php echo $pro_title;?>"/></td>
                 
                          </tr>
                          
                          <tr>  <td align="right"><b>Product Category</b></td>
                              <td>
-                             <select name="product_cat" required>
-                                 <option>Select a Category</option>
+                             <select name="product_cat">
+                                 <option><?php echo $category_title; ?></option>
                                  <!--to already display existing categories in the database-->
                          <?php 
                                 $get_cats="select * from categories";
@@ -57,7 +95,7 @@ include("includes/db.php");
                           <td align="right"><b>Product Brand</b></td>
                              <td>
                              <select name="product_brand" required>
-                                 <option>Select a Brand</option>
+                                 <option><?php echo $brand_title; ?></option>
                                  <!--to already display existing categories in the database-->
 <?php 
       $get_brands="select * from brands";
@@ -81,24 +119,24 @@ $brand_title=$row['brand_title'];
                 
     </tr>
                          <tr>  <td align="right"><b>Product Image</b></td>
-                             <td><input type="file" name="product_image" required/></td>
+                             <td><input type="file" name="product_image" /><img src ="product_images/<?php echo $pro_image; ?>" width="60" height="60"/></td>
                 
                          </tr>
                          <tr>  <td align="right"><b>Product Price</b></td>
-                             <td><input type="text" name="product_price" required/></td>
+                             <td><input type="text" name="product_price" value="<?php echo $pro_price;?>"/></td>
                 
                          </tr>
                          <tr>  <td align="right"><b>Product Description</b></td>
-                             <td><textarea name="product_desc" cols="20"rows="10"></textarea></td>
+                             <td><textarea name="product_desc" cols="20"rows="10"><?php echo $pro_desc;?></textarea></td>
                 
                          </tr>
                          <tr>  <td align="right"><b>Product Keywords</b></td>
-                             <td><input type="text" name="product_keywords" size="50" required/></td>
+                             <td><input type="text" name="product_keywords" size="50" value="<?php echo $pro_keywords;?>"/></td>
                 
                          </tr>
 
                          <tr align="center">  
-                             <td colspan="7"><input type="submit" name="insert_post" value="Insert Product Now"/></td>
+                             <td colspan="7"><input type="submit" name="update_product" value="Update Product!"/></td>
                 
                          </tr>
 
@@ -135,12 +173,11 @@ if ($insert_pro)
 {
 echo "<script>alert('Product Has Been Inserted!')</script>";
 //redirect message if product exist
-echo "<script>window.open('index.php?','insert_product')</script>"; //TODO:redirect the path
+echo "<script>window.open('index.php?','insert_product')</script>";
 }
 
 
 }
-
-
 
 ?>
+

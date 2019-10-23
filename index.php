@@ -54,7 +54,8 @@ include("functions/functions.php");
     <div id="sidebar">
     <div id="sidebar_title">Categories</div>  
     <ul id="cats">
-           <?php getCats();?>
+           <?php getCats(); 
+           ?>
 </ul>
 
 <div id="sidebar_title">Brands</div>  
