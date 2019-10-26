@@ -50,7 +50,7 @@ $row_pro=mysqli_fetch_array($run_pro);
     </head>
 <body bgcolor="skyblue">
 
-        <form action="insert_product.php" method="post" enctype="multipart/form-data"> 
+        <form action="" method="post" enctype="multipart/form-data"> 
 
                 <table align="center" width="795" border="2" bgcolor="#187eae">
 
@@ -149,8 +149,11 @@ $brand_title=$row['brand_title'];
 </html>  
 <!--taking data from text data from the fields and assigned to a variable-->
 <?php
-if (isset($_POST['insert_post']))
+if (isset($_POST['update_product']))
 {
+
+        $update_id=$pro_id;
+
         $product_title=$_POST['product_title'];
         $product_cat=$_POST['product_cat'];
         $product_brand=$_POST['product_brand'];
@@ -165,15 +168,17 @@ $product_image_tmp= $_FILES['product_image'] ['tmp_name'];
 move_uploaded_file($product_image_tmp,"product_images/ $product_image");
 
 
-$insert_product="insert into products (product_cat,product_brand,product_title,product_price,product_desc,product_image,product_keywords) 
-values ('$product_cat','$product_brand','$product_title','$product_price','$product_desc','$product_image','$product_keywords')";
+$update_product="update products set products_cat='$product_cat',product_brand='$product_brand',product_title='$product_title','product_price='$product_price',
+product_desc='$product_desc',product_image='$product_image'product_keywords='$product_keywords' 
+where product_id='$update_id'";
 
-$insert_pro = mysqli_query($conn, $insert_product);
-if ($insert_pro)
+$update_product = mysqli_query($conn, $update_product);
+if ($run_product)
 {
-echo "<script>alert('Product Has Been Inserted!')</script>";
+echo "<script>alert('Product Has Been Updated!')</script>";
+
 //redirect message if product exist
-echo "<script>window.open('index.php?','insert_product')</script>";
+echo "<script>window.open('index.php?','view_products')</script>";
 }
 
 

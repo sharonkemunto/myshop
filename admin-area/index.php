@@ -1,4 +1,15 @@
 
+<?php 
+session_start();
+
+if(!isset($_SESSION['user_email']))
+{
+    echo"<script>window.open('login.php?not_admin=You are not an admin!','_self')</script>";
+
+}
+else{
+?>
+
 <!DOCTYPE>
 <html>
     <head>
@@ -32,6 +43,7 @@
         
         </div>
         <div id="left">
+        <h2 style="color:red; text-align:center;"><?php echo @$_GET['Logged_in']; ?></h2>
 
         <?php 
         if(isset($_GET['insert_product'])){
@@ -51,26 +63,45 @@
             include("edit_pro.php");
     
         }
+        if(isset($_GET['insert_cat'])){
 
+            include("insert_cat.php");
+    
+        }
+        if(isset($_GET['view_cats'])){
+
+            include("view_cats.php");
+    
+        }
+        if(isset($_GET['edit_cat'])){
+
+            include("edit_cat.php");
+    
+        }
+        if(isset($_GET['insert_brand'])){
+
+            include("insert_brand.php");
+    
+        }
+        if(isset($_GET['view_brands'])){
+
+            include("view_brands.php");
+    
+        }
+        if(isset($_GET['edit_brand'])){
+
+            include("edit_brand.php");
+    
+        }
+        if(isset($_GET['view_customers'])){
+
+            include("view_customers.php");
+    
+        }
 
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
+ </div>
 </body>
 </html>
-
+<?php } ?>
