@@ -11,31 +11,25 @@ include("functions/functions.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Online Shop</title>
+    <link rel="stylesheet" href="styles/materialize.min.css"
     <link rel="stylesheet" href="styles/style.css" media="all"/>
 </head>
 <body>
 <!--main container starts here-->
     <div class="main_wrapper"> 
 
-    <!--header starts here-->
-        <div class="header">
-            <a href="index.php"><img id="logo" src="images/images.png"/></a>
+<nav>
+    <div class="nav-wrapper">
+      <a href="index.php" class="brand-logo">Digital Space</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="all_products.php">All Products</a></li>
+        <li><a href="customer/my_account.php">My Account</a></li>
+        <li><a href="cart.php">Shopping Cart</a></li>
+      </ul>
     </div>
-<!--header ends here-->
-
-
-
-<!--navigation bar starts here-->
-    <div class="menubar">
-<ul id="menu" >
-<li><a href="index.php">Home</a></li>
-<li><a href="all_products.php">All Products</a></li>
-<li><a href="customer/my_account.php">My Account</a></li>
-<li><a href="#">Sign Up</a></li>
-<li><a href="cart.php">Shopping Cart</a></li>
-<li><a href="#">Contact Us</a></li>
-
-</ul>
+  </nav>
+ 
 
 <div id="form">
    <form method="get" action="results.php" enctype="multipart/form-data"> <!--an attribute used to get videos and images-->
@@ -132,6 +126,7 @@ else{                 //if person is logged in
 
     </div> 
     <!--main container ends here-->
-    
+    <script src = "js/jquery-2.1.1.js"></script>  
+    <script src = "js/materialize.min.js"></script>  
 </body>
 </html>
