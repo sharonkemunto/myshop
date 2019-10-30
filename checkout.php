@@ -84,11 +84,7 @@ else{
 
 
 
-
-
-
-
-    <b style="color:yellow"> shopping_cart-</b> Total items:<?php total_items();?> Total Price:<?php total_price();?><a href="cart.php" style="color:yellow">Go to Cart</a>
+    <b style="color:yellow"> shopping_cart-</b> Total items:<?php total_items();?> Total Price:<p id="totals"><?php total_price();?></p><a href="cart.php" style="color:yellow">Go to Cart</a>
      </span>
      </div>
 
