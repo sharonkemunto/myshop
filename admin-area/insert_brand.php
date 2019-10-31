@@ -22,7 +22,7 @@ include("includes/db.php");
     if($run_brand)
     {
         echo"<script>alert('New Brand Has Been inserted!'</script>";
-        echo"<script>window.open('index.php?view_brands','_self')</script>";
+        echo"<script>window.open('index.php?insert_brand','_self')</script>";
     }
 }
 

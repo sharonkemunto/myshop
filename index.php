@@ -11,15 +11,15 @@ include("functions/functions.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Online Shop</title>
-    <link rel="stylesheet" href="styles/materialize.min.css"
+    <link rel="stylesheet" href="styles/materialize.min.css"/>
     <link rel="stylesheet" href="styles/style.css" media="all"/>
 </head>
 <body>
 <!--main container starts here-->
     <div class="main_wrapper"> 
 
-<nav>
-    <div class="nav-wrapper">
+<nav class="#ffd600 yellow accent-4" class="#000000 black">
+    <div class="nav-wrapper" >
       <a href="index.php" class="brand-logo">Digital Space</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="index.php">Home</a></li>
@@ -28,22 +28,54 @@ include("functions/functions.php");
         <li><a href="cart.php">Shopping Cart</a></li>
       </ul>
     </div>
-  </nav>
  
+      <div class="nav-wrapper">
+  
+  <div id="form">
+   <form> 
+   <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+        </form>
+        </div>
+        <div id="content__area">
+    <?php cart();?>
 
-<div id="form">
-   <form method="get" action="results.php" enctype="multipart/form-data"> <!--an attribute used to get videos and images-->
-<input type="text" name="user_query" placeholder="Search a product"/>
-<input type="submit" name="search" value="Search"/>
+     <div id="shopping_cart">
+     <span style="float:right; font-size:16px; padding:5px; line-height:40px;">
+     
+     <?php
 
-</form>
+if(isset($_SESSION['customer_email'])){
+echo "<b>Welcome</b>".$_SESSION['customer_email']."<b style='color:yellow;'>Your</b>";
+}
+else{
+    echo "<b>Welcome Guest</b>";
+}
 
-    </div>
+     ?>
+        <b style="color:yellow"> shopping_cart-</b> Total items:<?php total_items();?> Total Price:<?php total_price();?><a href="cart.php" style="color:yellow">Go to Cart</a>
+    <?php
+
+if(!isset($_SESSION['customer_email']))
+{
+    echo "<a href='checkout.php' style='color:orange;'>Login</a>";
+}
+else{                 //if person is logged in
+    echo "<a href='Logout.php' style='color:orange;'>Logout</a>";
+
+}
+?>
+</div>
+  </span>
+     </div>
+   </nav>
     <!--navigation bar ends here-->
 
     <!--content  here-->
-<div class="content">
-    
+<div class="content" class="container">
 
     <div id="sidebar">
     <div id="sidebar_title">Categories</div>  
@@ -62,52 +94,7 @@ include("functions/functions.php");
 
 </div>
    
-    <div id="content__area">
-
-    <?php cart();?>
-
-     <div id="shopping_cart">
-     <span style="float:right; font-size:16px; padding:5px; line-height:40px;">
-     <?php
-
-if(isset($_SESSION['customer_email'])){
-echo "<b>Welcome</b>"  . $_SESSION['customer_email'] . "<b style='color:yellow;'>Your</b>";
-}
-else{
-    echo "<b>Welcome Guest</b>";
-}
-
-     ?>
-        <b style="color:yellow"> shopping_cart-</b> Total items:<?php total_items();?> Total Price:<?php total_price();?><a href="cart.php" style="color:yellow">Go to Cart</a>
-    <?php
-
-if(!isset($_SESSION['customer_email']))
-{
-    echo "<a href='checkout.php' style='color:orange;'>Login</a>";
-}
-else{                 //if person is logged in
-    echo "<a href='Logout.php' style='color:orange;'>Logout</a>";
-
-}
-
-
-
-
-
-
-?>
-    
-    
-    
-    
-    
-     </span>
-     </div>
-
-
-
-
-    <div id="products_box">
+    <div id="products_box" class="white">
     <?php getPro(); ?>
     <?php getCatpro(); ?>
     <?php getBrandpro();?>
@@ -115,17 +102,27 @@ else{                 //if person is logged in
     </div>
 </div>
 <!--content ends here-->
+<footer class="page-footer white"> 
+
+          <div class="container">
+          
+            <div class="row">
+              
+             
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            &copy;2019 Digital Space
+            
+            </div>
+          </div>
+          
+        </footer>
+            
 
 
-
-    <div id="footer">
-        <h2 style ="text-align:center; padding-top:30px;">&copy;2019 Digital Space</h2>
-
-
-
-
-    </div> 
-    <!--main container ends here-->
+    
     <script src = "js/jquery-2.1.1.js"></script>  
     <script src = "js/materialize.min.js"></script>  
 </body>
