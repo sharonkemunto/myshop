@@ -1,50 +1,48 @@
-<?php
-include("includes/db.php");
+<?php 
+include("includes/db.php"); 
 
-if(isset($_GET['edit_cat']))
-{
-    $cat_id =$_GET['edit_cat'];
+if(isset($_GET['edit_cat'])){
 
-    $get_cat =" select * from categories where cat_id='$cat_id'";
+	$cat_id = $_GET['edit_cat']; 
+	
+	$get_cat = "select * from categories where cat_id='$cat_id'";
 
-    $run_cat=mysqli_query($conn,$get_cat);
-
-    $row_cat =mysqli_fetch_array($run_cat);
-
-    $cat_id=$row_cat['cat_id'];
-
-    $cat_title=$row_cat['cat_title'];
+	$run_cat = mysqli_query($con, $get_cat); 
+	
+	$row_cat = mysqli_fetch_array($run_cat); 
+	
+	$cat_id = $row_cat['cat_id'];
+	$cat_title = $row_cat['cat_title'];
 }
+
 
 ?>
+<form action="" method="post" style="padding:80px;">
 
-<form action="" method="post" style="padding:80;">
-
-<b>Update Catergory:</b>
-<input type="text" name="new_cat" value="<?php echo $cat_title ?>"/>
-<input type="submit" name="update_cat" value="Update Category" />
-
+<b>Update Category:</b>
+<input type="text" name="new_cat" value="<?php echo $cat_title;?>"/> 
+<input type="submit" name="update_cat" value="Update Category" /> 
 
 </form>
-<?php
+
+<?php 
 
 
-    if(isset($_POST['update_cat'])){
+	if(isset($_POST['update_cat'])){
+	
+	$update_id = $cat_id;
+	
+	$new_cat = $_POST['new_cat'];
+	
+	$update_cat = "update categories set cat_title='$new_cat' where cat_id='$update_id'";
 
-    $update_id=$cat_id;
-
-     $new_cat=$_POST['new_cat'];
-
-     $update_cat="update categories set cat_title='$new_cat' where cat_id='$update_id'";
-//executing the query
-    $run_cat=mysqli_query( $conn, $update_cat);
-
-    if($run_cat)
-    {
-        echo"<script>alert('Category Has Been Updated!'</script>";
-        echo"<script>window.open('index.php?view_cats','_self')</script>";
-    }
-}
-
+	$run_cat = mysqli_query($con, $update_cat); 
+	
+	if($run_cat){
+	
+	echo "<script>alert(' Category has been updated!')</script>";
+	echo "<script>window.open('index.php?view_cats','_self')</script>";
+	}
+	}
 
 ?>

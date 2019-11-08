@@ -1,8 +1,11 @@
-<?php
-session_start();
-session_destroy();
+<?php 
 
-echo"<script>window.open('../index.php','_self')</script>";
+session_start(); 
 
-//two back slash means out of the directory
+session_destroy(); 
+
+
+echo "<script>window.open('../index.php','_self')</script>";
+
+
 ?>
