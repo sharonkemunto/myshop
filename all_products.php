@@ -20,8 +20,8 @@ include("functions/functions.php");
 		<!--Header starts here-->
 		<div class="header_wrapper">
 		
-			<a href="index.php"><img id="logo" src="images/logo.gif" /> </a>
-			<img id="banner" src="images/ad_banner.gif" />
+			<a href="index.php"><img id="logo" src="images/h5.png" /> </a>
+			<img id="banner" src="images/h3.gif" />
 		</div>
 		<!--Header ends here-->
 		
@@ -132,7 +132,7 @@ include("functions/functions.php");
 		
 		<div id="footer">
 		
-		<h2 style="text-align:center; padding-top:30px;">&copy; 2019 by Digital Space</h2>
+		<h2 style="text-align:center; padding-top:30px;">&copy; 2019 Digital Space</h2>
 		
 		</div>
 	

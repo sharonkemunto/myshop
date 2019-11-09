@@ -20,8 +20,8 @@ include("functions/functions.php");
 		<!--Header starts here-->
 		<div class="header_wrapper">
 		
-			<a href="index.php"><img id="logo" src="images/logo.gif" /> </a>
-			<img id="banner" src="images/ad_banner.gif" />
+			<a href="index.php"><img id="logo" src="images/h5.png" /> </a>
+			<img id="banner" src="images/h3.gif" />
 		</div>
 		<!--Header ends here-->
 		
@@ -32,7 +32,6 @@ include("functions/functions.php");
 				<li><a href="index.php">Home</a></li>
 				<li><a href="all_products.php">All Products</a></li>
 				<li><a href="customer/my_account.php">My Account</a></li>
-				<li><a href="#">Sign Up</a></li>
 				<li><a href="cart.php">Shopping Cart</a></li>
 				<li><a href="#">Contact Us</a></li>
 			
@@ -128,7 +127,7 @@ include("functions/functions.php");
 		
 		<div id="footer">
 		
-		<h2 style="text-align:center; padding-top:30px;">&copy; 2014 by www.OnlineTuting.com</h2>
+		<h2 style="text-align:center; padding-top:30px;">&copy; Digital Space</h2>
 		
 		</div>
 	

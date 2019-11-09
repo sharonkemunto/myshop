@@ -20,8 +20,8 @@ include("functions/functions.php");
 		<!--Header starts here-->
 		<div class="header_wrapper">
 		
-			<img id="logo" src="images/logo.gif" /> 
-			<img id="banner" src="images/ad_banner.gif" />
+			<img id="logo" src="images/h5.png" /> 
+			<img id="banner" src="images/h3.gif" />
 		</div>
 		<!--Header ends here-->
 		
@@ -32,7 +32,6 @@ include("functions/functions.php");
 				<li><a href="#">Home</a></li>
 				<li><a href="#">All Products</a></li>
 				<li><a href="#">My Account</a></li>
-				<li><a href="#">Sign Up</a></li>
 				<li><a href="#">Shopping Cart</a></li>
 				<li><a href="#">Contact Us</a></li>
 			
